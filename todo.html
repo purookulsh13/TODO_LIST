@@ -1,27 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width,initial-scale=1.0">
-        <meta name="author" content="Puroo">
-        <title>TO_DO_LIST</title>
-        <link rel="stylesheet"  type="text/css" href="todo.css">
-        <link rel="stylesheet" href="todo.js" type="text/javascript">
-    </head>
-    
-    <body>
-        <div class="container">
-            <div class="box">
-                <h2><b> TO DO LIST</b></h2>
-                <input type="text" placeholder="Write here...." id="input">
-                <ul id="list"></ul>
-            </div>
-        </div>
-       
-         <script src="todo.js"></script>
-    </body>
-
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Puroo">
+    <title>To-Do List</title>
+    <link rel="stylesheet" href="todo.css">
+    <script defer src="todo.js"></script>
 </head>
-
+<body>
+    <div class="container">
+        <div class="box">
+            <h2><b>To-Do List</b></h2>
+            <input type="text" placeholder="Write here..." id="input">
+            <input type="time" id="timeInput">
+            <button id="addButton">Add</button>
+            <ul id="list"></ul>
+        </div>
+    </div>
+</body>
 </html>
