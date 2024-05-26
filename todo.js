@@ -1,22 +1,40 @@
-const input = document.querySelector('#input');
-const list = document.querySelector('#list');
+document.addEventListener('DOMContentLoaded', function () {
 
-input.addEventListener("keyup", function(event) {
-    if (event.key === "Enter" && this.value.trim() !== "") {
-        addItem(this.value);
-        this.value = "";
+    const input = document.querySelector('#input');
+    const timeInput = document.querySelector('#timeInput');
+    const addButton = document.querySelector('#addButton');
+    const list = document.querySelector('#list');
+
+    input.addEventListener('keyup', function (event) {
+        if (event.key === 'Enter' && this.value.trim() !== '' && timeInput.value !== '') {
+            addItem(this.value, timeInput.value);
+            this.value = '';
+            timeInput.value = '';
+        }
+    });
+
+    addButton.addEventListener('click', function () {
+        if (input.value.trim() !== '' && timeInput.value !== '') {
+            addItem(input.value, timeInput.value);
+            input.value = '';
+            timeInput.value = '';
+        }
+    });
+
+    function addItem(task, time) {
+        const listItem = document.createElement('li');
+        listItem.innerHTML = `
+            <span>${task} ${time}</span>
+            <div class="actions">
+                <i class="fas fa-times"></i>
+            </div>
+        `;
+        list.appendChild(listItem);
+
+        const removeButton = listItem.querySelector('.fa-times');
+        removeButton.addEventListener('click', function () {
+            listItem.remove();
+            removeButton.removeEventListener('click', this);
+        });
     }
 });
-function addItem(task) {
-    const listItem = document.createElement("li");
-    listItem.innerHTML = `
-        ${task} <i class="fas fa-check"></i> <i class="fas fa-times"></i>
-    `;
-    list.appendChild(listItem);
-    listItem.querySelector('.fa-check').addEventListener('click', function() {
-        listItem.classList.toggle('done');
-    });
-    listItem.querySelector('.fa-times').addEventListener('click', function() {
-        listItem.remove();
-    });
-}
