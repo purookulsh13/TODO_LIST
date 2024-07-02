@@ -7,48 +7,76 @@
     font-family: 'Poppins', sans-serif;
 }
 
+/* General Styling */
 body {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
     min-height: 100vh;
     background: #2f363e;
 }
 
+/* Navigation Bar Styling */
+.top-nav {
+    width: 100%;
+    background: #1f83f2;
+    padding: 10px 0;
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.top-nav a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 1.2em;
+    font-weight: 500;
+}
+
+.top-nav a.active {
+    font-weight: 700;
+    border-bottom: 2px solid #fff;
+}
+
+.top-nav a:hover {
+    color: #d0e1f9;
+}
+
+/* Container Styling */
 .container {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
     height: 100%;
+    padding-top: 60px; /* Space for the fixed nav bar */
 }
 
-.box {
-    position: relative;
-    width: 600px; /* Adjusted width */
-    height: 550px;
-    border-radius: 30px;
+/* Box Styling for Index Page */
+.index-page .box {
+    width: 80%;
+    max-width: 600px;
+    padding: 30px;
+    border-radius: 15px;
     background: #2f363e;
-    padding: 30px 50px;
-    box-shadow: 25px 25px 75px rgba(0, 0, 0, 0.25),
-                10px 10px 70px rgba(0, 0, 0, 0.25),
-                inset 5px 5px 10px rgba(0, 0, 0, 0.5),
-                inset 5px 5px 20px rgba(255, 255, 255, 0.2),
-                inset -5px -5px 15px rgba(0, 0, 0, 0.75);
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
     text-align: center;
 }
 
-h2 {
-    width: 100%;
+.index-page h2 {
     font-weight: 600;
-    text-align: center;
     color: #fff;
-    font-size: 1.75em;
-    margin-bottom: 10px;
+    font-size: 2em;
+    margin-bottom: 20px;
 }
 
-#input {
-    width: calc(50% - 40px); /* Adjusted width for both input fields */
+.index-page #input, 
+.index-page #timeInput {
+    width: calc(50% - 40px);
     border: none;
     outline: none;
     padding: 15px 20px;
@@ -56,24 +84,14 @@ h2 {
     font-size: 1em;
     margin-bottom: 10px;
     box-shadow: 5px 5px 7px rgba(0, 0, 0, 0.25),
-                inset 2px 2px 5px rgba(0, 0, 0, 0.5),
-                inset -3px -3px 5px rgba(0, 0, 0, 0.5);
+                inset 2px 2px 5px rgba(0, 0, 0, 0.5);
 }
 
-#timeInput {
-    width: calc(30% - 40px); /* Adjusted width for both input fields */
-    border: none;
-    outline: none;
-    padding: 15px 20px;
-    border-radius: 30px;
-    font-size: 1em;
-    margin-bottom: 10px;
-    box-shadow: 5px 5px 7px rgba(0, 0, 0, 0.25),
-                inset 2px 2px 5px rgba(0, 0, 0, 0.5),
-                inset -3px -3px 5px rgba(0, 0, 0, 0.5);
+.index-page #timeInput {
+    width: calc(30% - 40px);
 }
 
-button {
+.index-page button {
     padding: 15px 20px;
     border: none;
     outline: none;
@@ -85,12 +103,11 @@ button {
     transition: background 0.3s ease;
 }
 
-button:hover {
+.index-page button:hover {
     background: #145a9e;
 }
 
-#list {
-    position: relative;
+.index-page #list {
     margin-top: 20px;
     height: 350px;
     overflow: auto;
@@ -98,27 +115,21 @@ button:hover {
     list-style-type: none;
 }
 
-.box li {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+.index-page .box li {
     background: #1f83f2;
     margin: 15px 0;
     padding: 10px 20px;
     border-radius: 22.5px;
     color: #fff;
-    box-shadow: 5px 5px 7px rgba(0, 0, 0, 0.25),
-                inset 2px 2px 5px rgba(255, 255, 255, 0.25),
-                inset -3px -3px 5px rgba(0, 0, 0, 0.5);
+    box-shadow: 5px 5px 7px rgba(0, 0, 0, 0.25);
 }
 
-.box li .actions {
+.index-page .box li .actions {
     display: flex;
     gap: 10px;
 }
 
-.box li i {
+.index-page .box li i {
     width: 30px;
     height: 30px;
     display: flex;
@@ -127,18 +138,15 @@ button:hover {
     background: #ff2c74;
     border-radius: 50%;
     cursor: pointer;
-    box-shadow: 5px 5px 7px rgba(0, 0, 0, 0.25),
-                inset 2px 2px 5px rgba(0, 0, 0, 0.5),
-                inset -3px -3px 5px rgba(0, 0, 0, 0.5);
     transition: background 0.3s ease;
 }
 
-.box li i:hover {
+.index-page .box li i:hover {
     background: #c72256;
 }
 
-.box li i::before,
-.box li i::after {
+.index-page .box li i::before,
+.index-page .box li i::after {
     content: '';
     position: absolute;
     width: 15px;
@@ -146,15 +154,15 @@ button:hover {
     background: #fff;
 }
 
-.box li i::before {
+.index-page .box li i::before {
     transform: rotate(45deg);
 }
 
-.box li i::after {
+.index-page .box li i::after {
     transform: rotate(-45deg);
 }
 
-.box li.done {
+.index-page .box li.done {
     background: #607d8b;
     text-decoration: line-through;
 }
@@ -169,4 +177,104 @@ button:hover {
 
 ::-webkit-scrollbar-thumb {
     background: #fff;
+}
+
+/* Box Styling for About Page */
+.about-page .box {
+    width: 80%;
+    max-width: 800px;
+    padding: 30px;
+    border-radius: 15px;
+    background: #2f363e;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    color: #fff;
+}
+
+.about-page h2 {
+    font-weight: 600;
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.about-page h3 {
+    font-size: 1.5em;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.about-page h4 {
+    font-size: 1.2em;
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+
+.about-page p {
+    font-size: 1em;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.about-page ul {
+    list-style-type: disc;
+    margin-left: 20px;
+}
+
+.about-page li {
+    margin-bottom: 10px;
+}
+
+.about-page code {
+    background: #fff;
+    color: #2f363e;
+    padding: 2px 4px;
+    border-radius: 3px;
+    font-size: 0.9em;
+}
+
+/* Colorful and Glazing Animation */
+@keyframes glowing {
+    0% { color: #ff0000; text-shadow: 0 0 5px #ff0000, 0 0 10px #ff0000, 0 0 20px #ff0000, 0 0 30px #ff0000, 0 0 40px #ff0000; }
+    25% { color: #00ff00; text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00, 0 0 20px #00ff00, 0 0 30px #00ff00, 0 0 40px #00ff00; }
+    50% { color: #0000ff; text-shadow: 0 0 5px #0000ff, 0 0 10px #0000ff, 0 0 20px #0000ff, 0 0 30px #0000ff, 0 0 40px #0000ff; }
+    75% { color: #ff00ff; text-shadow: 0 0 5px #ff00ff, 0 0 10px #ff00ff, 0 0 20px #ff00ff, 0 0 30px #ff00ff, 0 0 40px #ff00ff; }
+    100% { color: #ffff00; text-shadow: 0 0 5px #ffff00, 0 0 10px #ffff00, 0 0 20px #ffff00, 0 0 30px #ffff00, 0 0 40px #ffff00; }
+}
+
+.glowing-text {
+    animation: glowing 2s infinite;
+}
+
+/* Footer Styling */
+footer {
+    margin-top: auto;
+    padding: 20px 0;
+    background: #1f83f2;
+    color: #fff;
+    width: 100%;
+    text-align: center;
+}
+
+footer a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 10px;
+    font-weight: 500;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+    .top-nav a {
+        font-size: 1em;
+        margin: 0 10px;
+    }
+
+    .index-page .box,
+    .about-page .box {
+        width: 95%;
+    }
 }
